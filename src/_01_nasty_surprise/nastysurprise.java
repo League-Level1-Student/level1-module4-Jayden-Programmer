@@ -38,24 +38,38 @@ public class nastysurprise implements ActionListener {
 	    	
 	     
 	        frame.setVisible(true);
+	        frame.add(panel);
 	        panel.add(treat);
 	        panel.add(trick);
 	        frame.setTitle("Trick or Treat"); 
 	        frame.pack();
 	        
 	        
-
-	    
+	     }
+	private void showPictureFromTheInternet(String imageUrl) {
+	    try {
+	        URL url = new URL(imageUrl);
+	        Icon icon = new ImageIcon(url);
+	        JLabel imageLabel = new JLabel(icon);
+	        JFrame frame = new JFrame();
+	        frame.add(imageLabel);
+	        frame.setVisible(true);
+	        frame.pack();
+	    } catch (MalformedURLException e) {
+	        e.printStackTrace();
 	    }
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getSource() == trick) {
 			String Url = "https://i0.wp.com/bestlifeonline.com/wp-content/uploads/2019/12/shutterstock_1290320698.jpg?resize=1024%2C683&ssl=1";
+			showPictureFromTheInternet(Url); 
 		}
 		if (e.getSource() == treat) {
 			String Url = "https://theapopkavoice.com/wp-content/uploads/2020/08/Rent-due.jpg";
+			showPictureFromTheInternet(Url);
 		}
 	}
 }
