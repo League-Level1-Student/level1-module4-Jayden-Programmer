@@ -36,8 +36,8 @@ public class SimonSays extends KeyAdapter {
 		// 2. Add the four images that match keyboard keys like this:
 		// images.put(KeyEvent.VK_UP, "up.jpg");
 		images.put(KeyEvent.VK_UP, "up.jpg");
-		images.put(KeyEvent.VK_UP, "down.jpg");
-		images.put(KeyEvent.VK_UP, "left.jpg");
+		images.put(KeyEvent.VK_DOWN, "down.jpg");
+		images.put(KeyEvent.VK_LEFT, "left.jpg");
 		images.put(KeyEvent.VK_RIGHT, "right.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching
 		// key when
@@ -84,7 +84,7 @@ public class SimonSays extends KeyAdapter {
 		// 23. Dispose of the frame
 		frame.dispose(); 
 		// 24. Call the showImage method to show a new image
-		frame.showImage();
+		showImage();
 	}
 
 	private void showImage() {
