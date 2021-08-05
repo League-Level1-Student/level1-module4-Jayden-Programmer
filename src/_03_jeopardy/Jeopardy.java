@@ -1,11 +1,9 @@
 package _03_jeopardy;
 
-
 /*
  *    Copyright (c) The League of Amazing Programmers 2013-2019
  *    Level 1
  */
-
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -29,7 +27,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 /* Check out the Jeopardy Handout to see what the end result should look like: http://bit.ly/1bvnvd4 */
 
 public class Jeopardy implements ActionListener {
@@ -40,53 +37,56 @@ public class Jeopardy implements ActionListener {
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
 	private int buttonCount = 0;
-	
-
-
 
 	public void run() {
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
-		
+
 		// 1. Make the frame show up
 		frame.setVisible(true);
 		frame.pack();
 		// 2. Give your frame a title
 		frame.setTitle("Jeopardy");
 		// 3. Create a JPanel variable to hold the header using the createHeader method
-		JPanel panel = createHeader("Jeopardy"); 
-		
-		
+		JPanel panel = createHeader("Jeopardy");
+
 		// 4. Add the header component to the quizPanel
 		quizPanel.add(panel);
 
 		// 5. Add the quizPanel to the frame
-
+		quizPanel.add(frame);
 		// 6. Use the createButton method to set the value of firstButton
-
+		firstButton = createButton("jbutton");
 		// 7. Add the firstButton to the quizPanel
-
-		// 8. Write the code to complete the createButton() method below. Check that your
+		quizPanel.add(firstButton);
+		// 8. Write the code to complete the createButton() method below. Check that
+		// your
 		// game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+		secondButton = createButton("jbutton1");
 		// 10. Add the secondButton to the quizPanel
-
+		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-		
-		 /*
+		JButton button200 = new JButton();
+		JButton button400 = new JButton();
+		JButton button600 = new JButton();
+		JButton button800 = new JButton();
+		JButton button1000 = new JButton();
+
+		/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
-		 */		
-		
+		 */
+
 		frame.pack();
 		quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
@@ -94,82 +94,86 @@ public class Jeopardy implements ActionListener {
 				Toolkit.getDefaultToolkit().getScreenSize().width);
 	}
 
-
 	private JButton createButton(String dollarAmount) {
-		
+
 		// Create a new JButton
-
+		JButton button1 = new JButton();
 		// Set the text of the button to the dollarAmount
-
+		button1.setText(dollarAmount);
 		// Increment the buttonCount (this should make the layout vertical)
-
+		buttonCount++;
 		// Return your new button instead of the temporary button
-
-		return new JButton("temporary button");
+		
+		return button1; 
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		
+
 		// Remove this temporary message after testing:
 		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
 
-			// Call the askQuestion() method
- 
-		// Complete the code in the askQuestion() method. When you play the game, the score should change.
+		// Call the askQuestion() method
+
+		// Complete the code in the askQuestion() method. When you play the game, the
+		// score should change.
 
 		// If the buttonPressed was the secondButton
 
-			// Call the askQuestion() method with a harder question
+		// Call the askQuestion() method with a harder question
 
-		// Clear the text on the button that was pressed (set the button text to nothing)
+		// Clear the text on the button that was pressed (set the button text to
+		// nothing)
 
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
-		
-		// Use the playJeopardyTheme() method to play music while the use thinks of an answer
-		
-		// Remove this temporary message and replace it with a pop-up that asks the user the question
+
+		// Use the playJeopardyTheme() method to play music while the use thinks of an
+		// answer
+
+		// Remove this temporary message and replace it with a pop-up that asks the user
+		// the question
 		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
-		
-		// Stop the theme music when they have entered their response. Hint: use the sound variable 
-		
+
+		// Stop the theme music when they have entered their response. Hint: use the
+		// sound variable
+
 		// If the answer is correct
 
-			// Increase the score by the prizeMoney
+		// Increase the score by the prizeMoney
 
-			// Pop up a message to tell the user they were correct
+		// Pop up a message to tell the user they were correct
 
 		// Otherwise
 
-			// Decrement the score by the prizeMoney
+		// Decrement the score by the prizeMoney
 
-			// Pop up a message to tell the user they were wrong and give them the correct answer
+		// Pop up a message to tell the user they were wrong and give them the correct
+		// answer
 
 		// Call the updateScore() method
 
 	}
 
-	public static synchronized void playJeopardyTheme()
-	    {
+	public static synchronized void playJeopardyTheme() {
 		String fileName = "jeopardy.wav";
-	        // Note: use .wav files            
-	        new Thread(new Runnable() {
-	            public void run() {
-	                try {
-	                    Clip clip = AudioSystem.getClip();
-	                    AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(fileName));
-	                    clip.open(inputStream);
-	                    clip.start();
-	                } catch (Exception e) {
-	                    System.out.println("play sound error: " + e.getMessage() + " for " + fileName);
-	                }
-	            }
-	        }).start();
-	    }
+		// Note: use .wav files
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					Clip clip = AudioSystem.getClip();
+					AudioInputStream inputStream = AudioSystem.getAudioInputStream(new File(fileName));
+					clip.open(inputStream);
+					clip.start();
+				} catch (Exception e) {
+					System.out.println("play sound error: " + e.getMessage() + " for " + fileName);
+				}
+			}
+		}).start();
+	}
 
 	private Component makeScorePanel() {
 		JPanel panel = new JPanel();
