@@ -8,8 +8,6 @@ public static void main(String[] args) {
 	tutor.setup(); 
 	}
 
-char generateRandomLetter() {
-    Random r = new Random();
-    return (char) (r.nextInt(26) + 'a');
-}
+
+
 }
