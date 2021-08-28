@@ -8,8 +8,6 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
-import com.sun.org.apache.bcel.internal.generic.IfInstruction;
-
 public class Magic8Ball {
 
 	// 1. Make a main method that includes all the steps below….

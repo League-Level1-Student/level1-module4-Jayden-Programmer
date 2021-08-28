@@ -14,7 +14,8 @@ public class FortuneTellerRunner {
        }
     
     static void begin() {
-    JOptionPane.showMessageDialog(null, "Can't give a hint I don't know where the location is myself. :/");
-
+    JOptionPane.showMessageDialog(null, "Can't give a hint I don't know where the location is myself.");
+    
+    
     }
 }
