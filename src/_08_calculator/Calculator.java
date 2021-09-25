@@ -58,7 +58,7 @@ public class Calculator implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		String number1 = input.getText();
 		int number = Integer.parseInt(number1);
 		String number2 = input.getText();
