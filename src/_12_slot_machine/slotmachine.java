@@ -44,6 +44,7 @@ public slotmachine() {
 		button.setText("fruits"); 
 		frame.setVisible(true);
 		frame.pack();
+		
 	} catch (MalformedURLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
